@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404 Not Found | SDG 11 Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for the 404 page */
+        .error-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--color-background);
+        }
+        .error-container .error-code {
+            font-size: clamp(6rem, 20vw, 12rem);
+            font-weight: 700;
+            color: var(--color-primary);
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            line-height: 1;
+            margin: 0;
+        }
+        .error-container h1 {
+             font-size: clamp(2rem, 5vw, 3rem);
+             color: var(--color-text);
+             background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <h1>Page Not Found</h1>
+        <p>Oops! The page you are looking for does not exist or has been moved.</p>
+        <a href="sdg11.html" class="cta-btn" style="margin-top: 2rem;">Return to Homepage</a>
+    </div>
+</body>
+</html>
