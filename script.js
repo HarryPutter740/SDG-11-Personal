@@ -1,5 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    // === SCROLL PROGRESS BAR (Global) ===
+    const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+    if (scrollProgressBar) {
+        const updateProgressBar = () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            if (scrollHeight > clientHeight) {
+                const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+                scrollProgressBar.style.width = `${scrollPercent}%`;
+            } else {
+                scrollProgressBar.style.width = '0%'; // No scrollbar if content is not scrollable
+            }
+        };
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar(); // Initial check
+    }
 
     // === TRANSLATION LOGIC ===
     const translations = {
@@ -13,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
             'targets_hero_title': 'SDG 11: Detailed Targets',
             'targets_hero_subtitle': 'A closer look at the specific goals for sustainable urban development.',
             'stats_billion_people': 'Billion People in Cities',
+            'stat_pop_2050': '% of World Population in Cities by 2050',
+            'stat_gdp': '% of Global GDP Generated in Cities',
+            'stat_co2': '% of Global CO2 Emissions from Cities',
             'dyk_title': 'Did You Know?',
             'dyk_fact1': "Cities consume over <strong>two-thirds</strong> of the world's energy and account for more than 70% of global CO2 emissions.",
             'dyk_fact2': "By 2050, the world's urban population is expected to nearly <strong>double</strong>, making sustainable urbanization a critical global priority.",
@@ -59,6 +77,9 @@ document.addEventListener("DOMContentLoaded", function() {
             'targets_hero_title': 'ODS 11: Objetivos Detallados',
             'targets_hero_subtitle': 'Una mirada más cercana a las metas específicas para el desarrollo urbano sostenible.',
             'stats_billion_people': 'Mil Millones de Personas en Ciudades',
+            'stat_pop_2050': '% de la Población Mundial en Ciudades para 2050',
+            'stat_gdp': '% del PIB Global Generado en Ciudades',
+            'stat_co2': '% de las Emisiones Globales de CO2 desde Ciudades',
             'dyk_title': '¿Sabías Que?',
             'dyk_fact1': 'Las ciudades consumen más de <strong>dos tercios</strong> de la energía mundial y representan más del 70% de las emisiones globales de CO2.',
             'dyk_fact2': 'Para 2050, se espera que la población urbana mundial casi se <strong>duplique</strong>, convirtiendo la urbanización sostenible en una prioridad mundial crítica.',
@@ -356,41 +377,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // === Custom Cursor (Global) ===
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
-
-    // Only initialize custom cursor on non-touch devices
-    if (cursorDot && cursorOutline && !isTouchDevice) {
-      window.addEventListener('mousemove', (e) => {
-          cursorDot.style.left = `${e.clientX}px`;
-          cursorDot.style.top = `${e.clientY}px`;
-          cursorOutline.animate({
-              left: `${e.clientX}px`,
-              top: `${e.clientY}px`
-          }, { duration: 500, fill: 'forwards' });
-      });
-
-      document.querySelectorAll('a, button, input[type="radio"], .gallery-item').forEach(el => {
-          el.addEventListener('mouseover', () => cursorOutline.classList.add('hover'));
-          el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
-      });
-    }
-
-    // === Touch Ripple Effect (for touch devices) ===
-    if (isTouchDevice) {
-        document.body.addEventListener('click', function (e) {
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple');
-            document.body.appendChild(ripple);
-
-            ripple.style.left = `${e.clientX - (ripple.clientWidth / 2)}px`;
-            ripple.style.top = `${e.clientY - (ripple.clientHeight / 2)}px`;
-
-            setTimeout(() => ripple.remove(), 600); // Remove after animation
-        });
-    }
-
     // === Intersection Observer for Animations (Global) ===
     const animatedElements = document.querySelectorAll('.illustration, .help-list li, .bar, .timeline__item, .icon-grid-item, .stat-number');
     if (animatedElements.length > 0) {
@@ -405,152 +391,98 @@ document.addEventListener("DOMContentLoaded", function() {
         animatedElements.forEach(el => observer.observe(el));
     }
 
-    // === PAGE-SPECIFIC LOGIC ===
-
-    // --- Homepage (`sdg11.html`) Specific Logic ---
-    const mainContent = document.getElementById('main-content');
-    if (mainContent) {
-        // Active Nav Link on Scroll (Scrollspy)
-        const sections = document.querySelectorAll(".content-section[id]");
-        const subNav = document.querySelector(".sub-nav");
-        if (sections.length > 0 && subNav) {
-            const subNavLinks = subNav.querySelectorAll("a");
-            const scrollSpyObserver = new IntersectionObserver((entries) => {
+    // --- Targets Page Specific Logic ---
+    const initTargetsPage = () => {
+        const timeline = document.querySelector('.timeline');
+        if (timeline) {
+            const timelineObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && subNavLinks.length > 0) {
-                        const id = entry.target.getAttribute('id');
-                        subNavLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Animate only once
                     }
                 });
-            }, { rootMargin: '-40% 0px -60% 0px' });
-            sections.forEach(section => scrollSpyObserver.observe(section));
+            }, { threshold: 0.2 });
+            timelineObserver.observe(timeline);
         }
-
-        // "Read More" Button
-        const readMoreBtn = document.querySelector('.read-more-btn');
-        const expandableContent = document.querySelector('.expandable-content');
-        if (readMoreBtn && expandableContent) {
-            readMoreBtn.addEventListener('click', function() {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                expandableContent.classList.toggle('open');
-                this.classList.toggle('active');
-                this.childNodes[0].nodeValue = isExpanded ? 'Read More ' : 'Read Less ';
-            });
-        }
-
-        // "Did You Know?" Fact Carousel & Animation
+    };
+    // --- Homepage Specific Logic ---
+    const initHomepage = () => {
         const factCarousel = document.querySelector('.fact-carousel');
-        if (factCarousel) {
-            const factItems = factCarousel.querySelectorAll('.fact-item');
-            if (factItems.length === 0) return;
+if (factCarousel) {
+    const factItems = factCarousel.querySelectorAll('.fact-item');
+    if (factItems.length > 1) { // Only run if there's more than one fact
+        let currentFactIndex = 0;
+        let factInterval;
 
-            let currentFactIndex = 0;
-            let factInterval;
+        // Store original content to re-animate and handle translations
+        factItems.forEach(item => {
+            const p = item.querySelector('p');
+            if (p) {
+                item.dataset.originalContent = p.innerHTML;
+            }
+        });
 
-            // Store original content to re-animate
-            factItems.forEach(item => {
-                item.dataset.originalContent = item.querySelector('p').innerHTML;
+        const animateFact = (factItem) => {
+            const p = factItem.querySelector('p');
+            if (!p || !p.dataset.i18n) return;
+
+            // Get the correct translated text
+            const currentLang = localStorage.getItem('language') || 'EN';
+            const i18nKey = p.dataset.i18n;
+            const textContent = translations[currentLang][i18nKey] || factItem.dataset.originalContent;
+            
+            p.innerHTML = ''; // Clear content
+
+            const parts = textContent.split(/(<strong>|<\/strong>)/g);
+            let delay = 0;
+
+            parts.forEach(part => {
+                if (part.match(/<strong>/)) {
+                    p.innerHTML += '<strong>';
+                } else if (part.match(/<\/strong>/)) {
+                    p.innerHTML += '</strong>';
+                } else if (part.trim() !== '') {
+                    const container = document.createDocumentFragment();
+                    part.split('').forEach(char => {
+                        const span = document.createElement('span');
+                        span.className = 'letter';
+                        span.innerHTML = char === ' ' ? '&nbsp;' : char;
+                        span.style.animationDelay = `${delay}s`;
+                        container.appendChild(span);
+                        delay += 0.015;
+                    });
+                    p.appendChild(container);
+                }
             });
+        };
 
-            const animateFact = (factItem) => {
-                const p = factItem.querySelector('p');
-                if (!p) return;
+        const showNextFact = () => {
+            factItems[currentFactIndex].classList.remove('active');
+            currentFactIndex = (currentFactIndex + 1) % factItems.length;
+            factItems[currentFactIndex].classList.add('active');
+            animateFact(factItems[currentFactIndex]);
+        };
 
-                // Reset before animating
-                p.innerHTML = item.dataset.originalContent;
-                const textContent = p.innerHTML;
-                p.innerHTML = ''; // Clear content
+        const startCarousel = () => {
+            stopCarousel(); // Clear any existing interval
+            factInterval = setInterval(showNextFact, 7000); // Change fact every 7 seconds
+        };
 
-                const parts = textContent.split(/(<[^>]*>)/);
-                let delay = 0;
+        const stopCarousel = () => clearInterval(factInterval);
 
-                parts.forEach(part => {
-                    if (part.startsWith('<')) {
-                        p.innerHTML += part;
-                    } else {
-                        part.split('').forEach(char => {
-                            const span = document.createElement('span');
-                            span.className = 'letter';
-                            span.innerHTML = char === ' ' ? '&nbsp;' : char;
-                            span.style.animationDelay = `${delay}s`;
-                            p.appendChild(span);
-                            delay += 0.015;
-                        });
-                    }
-                });
-            };
+        const factObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => entry.isIntersecting ? startCarousel() : stopCarousel());
+        }, { threshold: 0.5 });
 
-            const showNextFact = () => {
-                factItems[currentFactIndex].classList.remove('active');
-                currentFactIndex = (currentFactIndex + 1) % factItems.length;
-                factItems[currentFactIndex].classList.add('active');
-                animateFact(factItems[currentFactIndex]);
-            };
+        factObserver.observe(factCarousel);
+        factCarousel.addEventListener('mouseenter', stopCarousel);
+        factCarousel.addEventListener('mouseleave', startCarousel);
 
-            const startCarousel = () => {
-                if (!factInterval) {
-                    factInterval = setInterval(showNextFact, 5000); // Change fact every 5 seconds
-                }
-            };
-
-            const stopCarousel = () => {
-                clearInterval(factInterval);
-                factInterval = null;
-            };
-
-            const factObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    entry.isIntersecting ? startCarousel() : stopCarousel();
-                });
-            }, { threshold: 0.5 });
-
-            factObserver.observe(factCarousel);
-            factCarousel.addEventListener('mouseenter', stopCarousel);
-            factCarousel.addEventListener('mouseleave', startCarousel);
-
-            // Initial animation
-            animateFact(factItems[0]);
-        }
-
-        // Performant Parallax Backgrounds
-        const parallaxSections = document.querySelectorAll('.parallax-bg, .footer--dynamic-bg');
-        if (parallaxSections.length > 0) {
-            parallaxSections.forEach(section => {
-                const bgImage = section.dataset.bgImage;
-                if (bgImage) {
-                    section.style.backgroundImage = `url(${bgImage})`;
-                }
-
-                // Create a pseudo-element for the background to transform
-                const pseudo = document.createElement('div');
-                pseudo.classList.add('parallax-pseudo-bg');
-                if (bgImage) {
-                    pseudo.style.backgroundImage = `url(${bgImage})`;
-                }
-                section.prepend(pseudo);
-            });
-
-            const updateParallax = () => {
-                const scrollY = window.scrollY;
-                parallaxSections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const pseudoBg = section.querySelector('.parallax-pseudo-bg');
-
-                    if (scrollY + window.innerHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
-                        const yPos = (sectionTop - scrollY) * 0.3; // Speed factor
-                        pseudoBg.style.transform = `translate3d(0, ${yPos}px, 0)`;
-                    }
-                });
-            };
-            window.addEventListener('scroll', () => window.requestAnimationFrame(updateParallax), { passive: true });
-        }
+        // Initial animation for the first fact
+        animateFact(factItems[0]);
+    }
+}
 
         // Active animation for data card when in view
         const dataCard = document.querySelector('.story-card--data');
@@ -558,7 +490,34 @@ document.addEventListener("DOMContentLoaded", function() {
             const dataCardObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-active-anim');
+                        const card = entry.target;
+                        card.classList.add('is-active-anim');
+
+                        // Animate numbers if not already animated
+                        const numbers = card.querySelectorAll('.stat-number');
+                        numbers.forEach(numberEl => {
+                            if (numberEl.dataset.isAnimated === 'true') return;
+
+                            const goal = parseInt(numberEl.dataset.goal, 10);
+                            if (isNaN(goal)) return;
+
+                            numberEl.dataset.isAnimated = 'true';
+                            let current = 0;
+                            const duration = 2000; // 2 seconds
+                            const incrementTime = 20; // update every 20ms
+                            const step = goal / (duration / incrementTime);
+
+                            const timer = setInterval(() => {
+                                current += step;
+                                if (current >= goal) {
+                                    clearInterval(timer);
+                                    numberEl.textContent = goal;
+                                } else {
+                                    numberEl.textContent = Math.ceil(current);
+                                }
+                            }, incrementTime);
+                        });
+
                     } else {
                         entry.target.classList.remove('is-active-anim');
                     }
@@ -611,55 +570,54 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
 
-        // Story Card Modal Trigger
+        // Share Menu Logic for Story Cards
         const storiesGrid = document.querySelector('.stories-grid');
         if (storiesGrid) {
             storiesGrid.addEventListener('click', (e) => {
-                const modalTrigger = e.target.closest('[data-modal-target]');
-                if (modalTrigger) {
-                    openModal(modalTrigger.dataset.modalTarget);
+                const shareMenuBtn = e.target.closest('.share-menu-btn');
+                if (shareMenuBtn) {
+                    e.preventDefault(); // Prevent link overlay from triggering
+                    e.stopPropagation();
+                    const wrapper = shareMenuBtn.closest('.share-menu-wrapper');
+                    // Close other open menus
+                    document.querySelectorAll('.share-menu-wrapper.active').forEach(openWrapper => {
+                        if (openWrapper !== wrapper) {
+                            openWrapper.classList.remove('active');
+                        }
+                    });
+                    wrapper.classList.toggle('active');
+                }
+
+                const shareBtn = e.target.closest('.share-btn');
+                if (shareBtn) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const storyCard = shareBtn.closest('.story-card');
+                    const link = storyCard.querySelector('a');
+                    const title = storyCard.querySelector('.story-card__title').textContent;
+                    const imageUrl = window.getComputedStyle(storyCard).getPropertyValue('--bg-image').slice(4, -1).replace(/"/g, "");
+                    const shareUrl = link ? link.href : window.location.href;
+                    const text = `Check out this story: ${title} #SDG11`;
+
+                    let socialUrl;
+                    if (shareBtn.classList.contains('twitter')) {
+                        socialUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(text)}`;
+                    } else if (shareBtn.classList.contains('facebook')) {
+                        socialUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+                    } else if (shareBtn.classList.contains('pinterest')) {
+                        socialUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&media=${encodeURIComponent(imageUrl)}&description=${encodeURIComponent(text)}`;
+                    }
+
+                    if (socialUrl) {
+                        window.open(socialUrl, '_blank', 'width=600,height=400');
+                    }
                 }
             });
-        }
 
-        // Case Studies Tabs
-        const tabsContainer = document.querySelector('.case-study-tabs');
-        if (tabsContainer) {
-            tabsContainer.addEventListener('click', (e) => {
-                const clickedTab = e.target.closest('.case-tab');
-                if (clickedTab) {
-                    const activeTab = tabsContainer.querySelector('.case-tab.active');
-                    const activeContent = document.querySelector('.case-content.active');
-
-                    activeTab.classList.remove('active');
-                    activeTab.setAttribute('aria-selected', 'false');
-                    activeContent.classList.remove('active');
-                    activeContent.hidden = true;
-
-                    clickedTab.classList.add('active');
-                    clickedTab.setAttribute('aria-selected', 'true');
-                    const contentToShow = document.querySelector(`.case-content[data-tab="${clickedTab.dataset.tab}"]`);
-                    contentToShow.classList.add('active');
-                    contentToShow.hidden = false;
-                }
-            });
-        }
-
-        // Impact Calculator
-        const calculateBtn = document.getElementById('calculate-btn');
-        if (calculateBtn) {
-            calculateBtn.addEventListener('click', () => {
-                const form = calculateBtn.closest('form');
-                const commute = document.querySelector('input[name="commute"]:checked');
-                const recycle = document.querySelector('input[name="recycle"]:checked');
-                const resultDiv = document.querySelector('.calc-result');
-                if (!commute || !recycle) {
-                    resultDiv.innerHTML = `<p>Please answer all questions.</p>`;
-                    return;
-                }
-                const score = parseInt(commute.value) + parseInt(recycle.value);
-                const message = score <= 1 ? "Excellent! You're a true urban sustainability champion." : score <= 3 ? "Great effort! You're making a positive difference." : "There's always room to improve! Small changes make a big impact.";
-                resultDiv.innerHTML = `<p>${message}</p>`;
+            // Close share menus when clicking anywhere else on the grid
+            storiesGrid.addEventListener('click', () => {
+                document.querySelectorAll('.share-menu-wrapper.active').forEach(w => w.classList.remove('active'));
             });
         }
 
@@ -683,11 +641,11 @@ document.addEventListener("DOMContentLoaded", function() {
             partnersSection.addEventListener('focusout', playAnimation);
 
         }
-    }
+    };
 
-    // --- Privacy Page (`privacy.html`) Specific Logic ---
-    const copyBtn = document.querySelector('.copy-code-btn');
-    if (copyBtn) {
+    // --- Privacy Page Specific Logic ---
+    const initPrivacyPage = () => {
+        const copyBtn = document.querySelector('.copy-code-btn');
         copyBtn.addEventListener('click', () => {
             const codeElement = document.getElementById('code-to-copy');
             navigator.clipboard.writeText(codeElement.innerText).then(() => {
@@ -699,11 +657,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 }, 2000);
             });
         });
-    }
+    };
 
-    // --- Gallery Page (`gallery.html`) Specific Logic ---
-    const galleryGrid = document.querySelector('.gallery-grid');
-    if (galleryGrid) {
+    // --- Gallery Page Specific Logic ---
+    const initGalleryPage = () => {
+        const galleryGrid = document.querySelector('.gallery-grid');
         const filterContainer = document.querySelector('.filter-buttons');
         const galleryItems = document.querySelectorAll('.gallery-item');
         const lightbox = document.querySelector('.lightbox-overlay');
@@ -897,9 +855,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 loadMoreBtn.style.display = 'none';
             }
         }
-    }
-
-    // === Contact Form Logic (Global) ===
+    };
     const contactForms = document.querySelectorAll('.footer__form form, .contact-form form');
     contactForms.forEach(form => {
         form.addEventListener('submit', function(e) {
@@ -1049,4 +1005,69 @@ document.addEventListener("DOMContentLoaded", function() {
             closeModal(activeModal);
         }
     });
+
+    // === PAGE ROUTER ===
+    // Determines which page-specific scripts to run
+    const runPageSpecificScripts = () => {
+        const path = window.location.pathname.split("/").pop();
+
+        // Logic for homepage (sdg11.html or root)
+        if (path === 'sdg11.html' || path === '') {
+            initHomepage();
+        }
+
+        // Logic for gallery page
+        if (path === 'gallery.html') {
+            initGalleryPage();
+        }
+
+        // Logic for privacy page
+        if (path === 'privacy.html') {
+            initPrivacyPage();
+        }
+    };
+        // Logic for targets page
+        if (path === 'targets.html') {
+            initTargetsPage();
+        }
+    };
+
+    // === GLOBAL INITIALIZATION ===
+    // Functions that run on every page
+    const initGlobal = () => {
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        // Custom Cursor (non-touch devices only)
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        if (cursorDot && cursorOutline && !isTouchDevice) {
+            window.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = `${e.clientX}px`;
+                cursorDot.style.top = `${e.clientY}px`;
+                cursorOutline.animate({
+                    left: `${e.clientX}px`,
+                    top: `${e.clientY}px`
+                }, { duration: 500, fill: 'forwards' });
+            });
+            document.querySelectorAll('a, button, input, .story-card, .gallery-item').forEach(el => {
+                el.addEventListener('mouseover', () => cursorOutline.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover'));
+            });
+        }
+
+        // Touch Ripple Effect (touch devices only)
+        if (isTouchDevice) {
+            document.body.addEventListener('click', function (e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                document.body.appendChild(ripple);
+                ripple.style.left = `${e.clientX - (ripple.clientWidth / 2)}px`;
+                ripple.style.top = `${e.clientY - (ripple.clientHeight / 2)}px`;
+                setTimeout(() => ripple.remove(), 600);
+            });
+        }
+    };
+
+    initGlobal();
+    runPageSpecificScripts();
 });
