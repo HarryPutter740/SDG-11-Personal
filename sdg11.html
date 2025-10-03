@@ -55,233 +55,148 @@
         </nav>
     </header>
     <header class="sub-header">
-        <nav class="sub-nav">
-            <ul>
-                <li><a href="#why-it-matters">Why it Matters</a></li>
-                <li><a href="#data-progress">Data</a></li>
-                <li><a href="#key-targets">Core Objectives</a></li>
-                <li><a href="#sdg-in-action">In Action</a></li>
-                <li><a href="#how-to-help">How to Help</a></li>
-            </ul>
-        </nav>
+        <!-- Sub-header is removed for the new design to maximize content visibility -->
     </header>
 
     <div class="content-wrapper">
         <section class="hero">
-            <h1 class="animated-hero-text" data-i18n="hero_title">Sustainable Development Goal 11</h1>
-            <h2 data-i18n="hero_subtitle">Make cities and human settlements inclusive, safe, resilient, and sustainable.</h2>
+            <div class="hero__content">
+                <span class="hero__tagline">The Future is Urban</span>
+                <h1 class="hero__title animated-hero-text">Building the Sustainable Cities of Tomorrow</h1>
+            </div>
+            <a href="#main-content" class="scroll-down-arrow" aria-label="Scroll to main content">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>
+            </a>
         </section>
 
         <main class="main-content">
-            <div class="container" id="main-content">
-                <section id="why-it-matters" class="content-section grid-2-col" aria-labelledby="why-it-matters-heading">
-                    <div class="grid-item">
-                        <div class="interactive-map-container">
-                            <svg class="world-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M998 252... (world map path data) ...z"/>
-                                <circle class="map-dot" cx="200" cy="200" r="4"/>
-                                <circle class="map-dot" cx="500" cy="250" r="4"/>
-                                <circle class="map-dot" cx="750" cy="300" r="4"/>
-                                <circle class="map-dot" cx="300" cy="350" r="4"/>
-                                <circle class="map-dot" cx="600" cy="150" r="4"/>
-                                <circle class="map-dot" cx="850" cy="200" r="4"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="grid-item">
-                        <h2 id="why-it-matters-heading" data-i18n="why_matters_title">Why SDG 11 Matters</h2>
-                        <p>
-                            By 2050, two-thirds of humanity will live in urban areas. SDG 11 aims to ensure that cities are safe, affordable, accessible, and sustainable for all. This includes improving housing, transportation, green spaces, and disaster resilience.
-                        </p>
-                        <ul>
-                            <li><strong>Urbanization:</strong> Over half the world’s population lives in cities, making urban sustainability crucial for global well-being.</li>
-                            <li><strong>Challenges:</strong> Rapid urban growth leads to slums, pollution, congestion, and vulnerability to disasters.</li>
-                            <li><strong>Opportunities:</strong> Well-planned cities can drive innovation, economic growth, and improve quality of life.</li>
-                        </ul>
-                        <div class="expandable-content" id="why-matters-expand">
-                            <ul>
-                                <li><strong>Urbanization:</strong> Over half the world’s population lives in cities, making urban sustainability crucial for global well-being.</li>
-                                <li><strong>Challenges:</strong> Rapid urban growth leads to slums, pollution, congestion, and vulnerability to disasters.</li>
-                                <li><strong>Opportunities:</strong> Well-planned cities can drive innovation, economic growth, and improve quality of life.</li>
-                            </ul>
-                            <p>
-                                Achieving this goal is critical not just for urban dwellers but for the planet. Sustainable cities reduce carbon footprints, preserve natural habitats, and promote social equity. By focusing on smart urban planning, we can create communities that are not only economically vibrant but also environmentally responsible and socially inclusive for generations to come.
-                            </p>
-                        </div>
-                        <button class="read-more-btn" aria-expanded="false" aria-controls="why-matters-expand">
-                            Read More <span class="arrow"></span>
-                        </button>
-                    </div>
-                </section>
+            <div class="stories-grid-container">
+                <div class="story-filter-bar">
+                    <button class="story-filter-btn active" data-filter="all">All Stories</button>
+                    <button class="story-filter-btn" data-filter="case-study">Case Studies</button>
+                    <button class="story-filter-btn" data-filter="data">Data & Insights</button>
+                    <button class="story-filter-btn" data-filter="action">Get Involved</button>
+                </div>
 
-                <section id="impact-stats" class="content-section parallax-bg" data-bg-image="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg">
-                    <div class="stats-container">
-                        <div class="stat-item">
-                            <h3 class="stat-number" data-goal="4.4">0</h3>
-                            <p>Billion People in Cities</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 class="stat-number" data-goal="68">0</h3>
-                            <p>% of World Population by 2050</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3 class="stat-number" data-goal="80">0</h3>
-                            <p>% of Global GDP Generated in Cities</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="did-you-know" class="content-section" aria-labelledby="dyk-heading">
-                    <h2 id="dyk-heading">Did You Know?</h2>
-                    <div class="fact-carousel">
-                        <div class="fact-item active">
-                            <p>Cities consume over <strong>two-thirds</strong> of the world's energy and account for more than 70% of global CO2 emissions.</p>
-                        </div>
-                        <div class="fact-item">
-                            <p>By 2050, the world's urban population is expected to nearly <strong>double</strong>, making sustainable urbanization a critical global priority.</p>
-                        </div>
-                        <div class="fact-item">
-                            <p>Over <strong>1 billion</strong> people live in slums, and this number is projected to rise without significant intervention in housing policies.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="data-progress" class="content-section" aria-labelledby="data-progress-heading">
-                    <h2 id="data-progress-heading">Data & Progress</h2>
-                    <div class="chart-container">
-                        <div class="chart">
-                            <div class="bar" style="--bar-value: 80%;" data-value="80%"></div>
-                            <span class="bar-label">Access to Public Transport</span>
-                        </div>
-                        <div class="chart">
-                            <div class="bar" style="--bar-value: 60%;" data-value="60%"></div>
-                            <span class="bar-label">Urban Population in Slums</span>
-                        </div>
-                        <div class="chart">
-                            <div class="bar" style="--bar-value: 95%;" data-value="95%"></div>
-                            <span class="bar-label">Waste Collection Coverage</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="challenges-opportunities" class="content-section" aria-labelledby="co-heading">
-                    <h2 id="co-heading">Challenges vs. Opportunities</h2>
-                    <div class="grid-2-col">
-                        <div class="column-box challenges"><h3>Challenges</h3><ul><li>Pollution & Emissions</li><li>Housing Shortages</li><li>Infrastructure Strain</li><li>Social Inequality</li></ul></div>
-                        <div class="column-box opportunities"><h3>Opportunities</h3><ul><li>Green Innovation</li><li>Economic Hubs</li><li>Cultural Diversity</li><li>Efficient Resource Use</li></ul></div>
-                    </div>
-                </section>
-
-                <section id="sdg-in-action" class="content-section" aria-labelledby="sdg-in-action-heading">
-                    <h2 id="sdg-in-action-heading">SDG 11 in Action</h2>
-                    <div class="case-studies-container">
-                        <div class="case-study-tabs">
-                            <button class="case-tab active" data-tab="1">Singapore Green Plan</button>
-                            <button class="case-tab" data-tab="2">Freiburg's Vauban District</button>
-                            <button class="case-tab" data-tab="3">Curitiba's Transit System</button>
-                        </div>
-                        <div class="case-study-content">
-                            <div class="case-content active" data-tab="1">
-                                <img src="https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg" alt="Gardens by the Bay in Singapore">
-                                <div><h3>Singapore's Green Plan 2030</h3><p>A nationwide movement to advance Singapore's national agenda on sustainable development. It charts ambitious and concrete targets, seeking to change the way people live, work, study and play, while creating new opportunities for growth.</p></div>
-                            </div>
-                            <div class="case-content" data-tab="2">
-                                <img src="https://images.pexels.com/photos/1124960/pexels-photo-1124960.jpeg" alt="Solar panels on a green roof">
-                                <div><h3>Freiburg's Vauban District, Germany</h3><p>A world-renowned example of sustainable urban living. The district is car-free, with extensive cycling networks, and buildings constructed to ultra-low energy consumption standards ("Passivhaus"), many with solar installations.</p></div>
-                            </div>
-                            <div class="case-content" data-tab="3">
-                                <img src="https://images.pexels.com/photos/37859/bus-stop-road-travel-37859.jpeg" alt="A modern bus rapid transit station">
-                                <div><h3>Curitiba's Bus Rapid Transit (BRT)</h3><p>Pioneered in Brazil, Curitiba's BRT system is a model for efficient, high-capacity public transport. Its dedicated bus lanes, pre-payment stations, and iconic tube-like stops have inspired similar systems worldwide, reducing congestion and pollution.</p></div>
+                <div class="stories-grid">
+                    <!-- Card 1: Featured Video -->
+                    <div class="story-card story-card--large story-card--video" data-category="video" style="--bg-image: url('https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg');">
+                        <a href="https://www.youtube.com/watch?v=s4x2k2B-MXI" target="_blank" class="story-card__link-overlay" aria-label="Watch video: What is a Sustainable City?"></a>
+                        <div class="story-card__content">
+                            <span class="story-card__category">Video</span>
+                            <h3 class="story-card__title">What Makes a City Sustainable?</h3>
+                            <div class="story-card__play-icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <section id="key-targets" class="content-section" aria-labelledby="key-targets-heading">
-                    <h2 id="key-targets-heading">Core Objectives</h2>
-                    <div class="icon-grid">
-                        <div class="icon-grid-item">
-                            <svg class="grid-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"/></svg>
-                            <h3>Safe Housing</h3>
-                            <p>Upgrade slums and ensure access to adequate and affordable housing for all.</p>
-                        </div>
-                        <div class="icon-grid-item">
-                            <svg class="grid-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg>
-                            <h3>Sustainable Transport</h3>
-                            <p>Provide safe, affordable, and accessible transport systems, especially public transit.</p>
-                        </div>
-                        <div class="icon-grid-item">
-                            <svg class="grid-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            <h3>Protect Heritage</h3>
-                            <p>Strengthen efforts to protect and safeguard the world's cultural and natural heritage.</p>
-                        </div>
-                        <div class="icon-grid-item">
-                            <svg class="grid-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                            <h3>Green Spaces</h3>
-                            <p>Ensure universal access to safe, inclusive, and accessible green and public spaces.</p>
+                    <!-- Card 2: Singapore Case Study -->
+                    <div class="story-card" data-category="case-study" style="--bg-image: url('https://images.pexels.com/photos/220769/pexels-photo-220769.jpeg');">
+                        <a href="targets.html" class="story-card__link-overlay" aria-label="Read more about Singapore's Green Plan 2030"></a>
+                        <div class="story-card__content">
+                            <span class="story-card__category">Case Study</span>
+                            <h3 class="story-card__title">Singapore's Green Plan 2030</h3>
                         </div>
                     </div>
-                </section>
 
-                <section id="how-to-help" class="content-section" aria-labelledby="how-to-help-heading">
-                    <h2 id="how-to-help-heading">How You Can Help</h2>
-                    <ul class="help-list">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2c-4.418 0-8 3.582-8 8s8 12 8 12 8-7.582 8-12-3.582-8-8-8zm0 11.5c-1.933 0-3.5-1.567-3.5-3.5s1.567-3.5 3.5-3.5 3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5z"/></svg> <strong>Champion Green Spaces.</strong> Support local parks, community gardens, and tree-planting initiatives. Green spaces are vital for air quality, biodiversity, and public health.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M16 11h5l-9 10-9-10h5v-11h8v11zm-3-8h-2v-2h2v2z"/></svg> <strong>Use Sustainable Transport.</strong> Opt for public transportation, cycling, or walking whenever possible. Reducing car dependency lowers emissions and eases traffic congestion.</li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M21 13v-2h-2v2h-2v-2h-2v2h-2v-2h-2v2h-2v-2h-2v-2h-3v10h22v-10h-3zm-2-8v-3h-14v3h-2v-5h18v5h-2z"/></svg> <strong>Advocate for Smart Policies.</strong> Voice your support for affordable housing, efficient waste management, and inclusive urban planning at local government meetings. Your voice matters in shaping your city's future.</li>
-                    </ul>
-                </section>
-
-                <section id="impact-calculator" class="content-section" aria-labelledby="calculator-heading">
-                    <h2 id="calculator-heading">Calculate Your Impact</h2>
-                    <div class="calculator-container">
-                        <div class="calc-question">
-                            <p>How do you primarily commute?</p>
-                            <label><input type="radio" name="commute" value="2"> Car</label>
-                            <label><input type="radio" name="commute" value="1"> Public Transit</label>
-                            <label><input type="radio" name="commute" value="0"> Walk/Bike</label>
+                    <!-- Card 3: Why it Matters -->
+                    <button class="story-card story-card--text-focus" data-category="big-picture" data-modal-target="why-it-matters-modal">
+                        <div class="story-card__content">
+                            <span class="story-card__category">The Big Picture</span>
+                            <h3 class="story-card__title">Why Our Cities Define Our Future</h3>
+                            <p>By 2050, two-thirds of all humanity will live in urban areas. Making them sustainable is not an option—it's a necessity.</p>
                         </div>
-                        <div class="calc-question">
-                            <p>How often do you recycle?</p>
-                            <label><input type="radio" name="recycle" value="2"> Rarely</label>
-                            <label><input type="radio" name="recycle" value="1"> Sometimes</label>
-                            <label><input type="radio" name="recycle" value="0"> Always</label>
+                    </button>
+
+                    <!-- Card 4: Freiburg Case Study -->
+                    <div class="story-card" data-category="case-study" style="--bg-image: url('https://images.pexels.com/photos/1124960/pexels-photo-1124960.jpeg');">
+                        <a href="targets.html" class="story-card__link-overlay" aria-label="Read more about Freiburg's Vauban district"></a>
+                        <div class="story-card__content">
+                            <span class="story-card__category">Case Study</span>
+                            <h3 class="story-card__title">Freiburg's Vauban: A Car-Free Vision</h3>
                         </div>
-                        <button class="cta-btn" id="calculate-btn">See My Impact</button>
-                        <div class="calc-result"></div>
                     </div>
-                </section>
 
-                <section class="quote-section parallax-bg" data-bg-image="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg">
-                    <blockquote>"The city is not a problem. The city is the solution."</blockquote>
-                    <cite>– Jaime Lerner, Architect and Urban Planner</cite>
-                </section>
-
-                <section class="cta-section" aria-label="Call to action to explore targets">
-                    <div class="cta-content">
-                        <h2>Dive Deeper into the Targets</h2>
-                        <p>Explore the specific, measurable goals that form the backbone of SDG 11 and understand what it takes to build a sustainable future.</p>
-                        <a href="targets.html" class="cta-btn">Explore Targets</a>
+                    <!-- Card 5: Data Stats -->
+                    <div class="story-card story-card--data story-card--medium" data-category="data">
+                        <div class="story-card__content">
+                            <span class="story-card__category">Data Insight</span>
+                            <div class="stat-item">
+                                <h3 class="stat-number" data-goal="68">0</h3>
+                                <p>% of World Population in Cities by 2050</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="stat-number" data-goal="80">0</h3>
+                                <p>% of Global GDP Generated in Cities</p>
+                            </div>
+                        </div>
                     </div>
-                </section>
 
+                    <!-- Card 6: Curitiba Case Study -->
+                    <div class="story-card story-card--medium" data-category="case-study" style="--bg-image: url('https://images.pexels.com/photos/37859/bus-stop-road-travel-37859.jpeg');">
+                        <a href="targets.html" class="story-card__link-overlay" aria-label="Read more about Curitiba's Bus Rapid Transit"></a>
+                        <div class="story-card__content">
+                            <span class="story-card__category">Case Study</span>
+                            <h3 class="story-card__title">Curitiba's Bus Rapid Transit (BRT) Revolution</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Quote -->
+                    <div class="story-card story-card--quote" data-category="big-picture">
+                        <div class="story-card__content">
+                            <blockquote>"The city is not a problem. The city is the solution."</blockquote>
+                            <cite>– Jaime Lerner, Architect and Urban Planner</cite>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: How to Help -->
+                    <div class="story-card" data-category="action" style="--bg-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg');">
+                        <a href="targets.html" class="story-card__link-overlay" aria-label="Learn how you can make a difference"></a>
+                        <div class="story-card__content">
+                            <span class="story-card__category">Action</span>
+                            <h3 class="story-card__title">How You Can Make a Difference</h3>
+                        </div>
+                    </div>
+
+                    <!-- Card 9: Gallery -->
+                    <div class="story-card" data-category="gallery" style="--bg-image: url('https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg');">
+                        <a href="gallery.html" class="story-card__link-overlay" aria-label="View the inspiration gallery"></a>
+                        <div class="story-card__content">
+                            <span class="story-card__category">Gallery</span>
+                            <h3 class="story-card__title">Visions of a Sustainable Future</h3>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </main>
     </div>
 
-    <section class="partners-section">
+    <section class="get-involved-section">
+        <div class="get-involved-content">
+            <h2>Inspired? See More.</h2>
+            <p>Dive deeper into the visual gallery of sustainable innovations or explore the specific targets that guide our mission.</p>
+            <div class="get-involved-actions">
+                <a href="gallery.html" class="cta-btn">View Gallery</a>
+                <a href="targets.html" class="cta-btn cta-btn--secondary">Explore Targets</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section" role="region" aria-label="Our Partners">
         <div class="logo-carousel">
-            <img src="https://logodix.com/logo/1759375.png" alt="Partner Logo 1">
-            <img src="https://logodix.com/logo/1759386.png" alt="Partner Logo 2">
-            <img src="https://logodix.com/logo/1759411.png" alt="Partner Logo 3">
-            <img src="https://logodix.com/logo/1759423.png" alt="Partner Logo 4">
-            <img src="https://logodix.com/logo/1759432.png" alt="Partner Logo 5">
+            <img src="https://unhabitat.org/themes/custom/unhabitat/logo.svg" alt="UN-Habitat Logo">
+            <img src="https://www.c40.org/wp-content/uploads/2021/08/logo.svg" alt="C40 Cities Logo">
+            <img src="https://worldgbc.org/wp-content/uploads/2022/09/WorldGBC-Logo_Green-1.svg" alt="World Green Building Council Logo">
+            <img src="https://iclei.org/wp-content/uploads/2020/02/ICLEI_logo.svg" alt="ICLEI Logo">
+            <img src="https://www.wri.org/themes/custom/wri_bootstrap/logo.svg" alt="World Resources Institute Logo">
         </div>
     </section>
 
     <footer class="footer footer--dynamic-bg" data-bg-image="https://images.pexels.com/photos/374710/pexels-photo-374710.jpeg">
         <div class="footer__content">
-            <div class="footer__info">
+            <div class="footer__info footer__info--main">
                 <h3 class="footer__title">SDG 11: Sustainable Cities and Communities</h3>
                 <p>Building a better urban future for everyone.</p>
                 <div class="footer__links">
@@ -289,6 +204,14 @@
                 </div>
             </div>
             <div class="footer__form">
+                <div class="footer__socials">
+                    <h3 class="footer__title">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-.424.727-.666 1.581-.666 2.477 0 1.921.92 3.617 2.312 4.616-.864-.027-1.675-.265-2.383-.654v.08c0 2.68 1.908 4.915 4.438 5.424-.464.126-.95.193-1.454.193-.356 0-.702-.034-1.043-.097.713 2.2 2.789 3.797 5.252 3.842-1.9 1.487-4.287 2.37-6.885 2.37-.447 0-.89-.026-1.326-.077 2.463 1.578 5.397 2.5 8.552 2.5 10.27 0 15.891-8.508 15.891-15.891 0-.242-.005-.483-.016-.723.98-.703 1.825-1.575 2.5-2.592z"/></svg></a>
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.98v16h4.98v-8.396c0-2.006 1.806-3.604 4.002-3.604 2.195 0 3.998 1.598 3.998 3.604v8.396h5v-10c0-5.522-4.477-10-10-10z"/></svg></a>
+                    </div>
+                </div>
                 <h3 class="footer__title">Get in Touch</h3>
                 <form action="https://formsubmit.co/your-email@example.com" method="POST">
                     <!-- Redirect to a thank you page -->
@@ -319,7 +242,7 @@
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-consent-banner">
+    <div class="cookie-consent-banner" role="region" aria-label="Cookie Consent">
         <p>This website uses cookies to enhance the user experience. Please see our <a href="privacy.html">Privacy Policy</a> for more details.</p>
         <div class="cookie-buttons">
             <button class="cookie-btn cookie-decline-btn">Decline</button>
@@ -329,6 +252,29 @@
 
     <!-- Back to Top Button -->
     <a href="#page-top" class="back-to-top-btn" aria-label="Scroll back to top">↑</a>
+
+    <!-- Modal Structure -->
+    <div id="why-it-matters-modal" class="modal-overlay">
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal-close" aria-label="Close modal">×</button>
+            <h2 id="modal-title">Why Our Cities Define Our Future</h2>
+            <p>
+                By 2050, two-thirds of all humanity—more than 6 billion people—will live in urban areas. This rapid, historic migration creates immense challenges and unprecedented opportunities. How we design and manage our cities will define our collective future.
+            </p>
+            <ul>
+                <li><strong>Environmental Hubs:</strong> Cities consume over 70% of the world's energy and produce a similar share of global CO2 emissions. Sustainable urban design is therefore central to combating climate change.</li>
+                <li><strong>Economic Engines:</strong> Well-planned cities are powerhouses of economic growth, fostering innovation, and providing livelihoods for billions.</li>
+                <li><strong>Social Fabric:</strong> Cities are melting pots of culture and diversity. Ensuring they are inclusive and equitable is key to social stability and progress.</li>
+                <li><strong>Resilience is Key:</strong> With growing populations, cities are increasingly vulnerable to natural disasters and health crises. Building resilience through smart infrastructure and planning is essential for protecting lives.</li>
+            </ul>
+            <p>
+                Achieving SDG 11 is not just about building better cities; it's about creating a sustainable, prosperous, and equitable future for everyone on the planet.
+            </p>
+            <div class="modal-actions">
+                <a href="targets.html" class="cta-btn">Explore the Targets</a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js" defer></script>
 </body>

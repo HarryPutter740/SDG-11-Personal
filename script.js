@@ -11,7 +11,43 @@ document.addEventListener("DOMContentLoaded", function() {
             'hero_subtitle': 'Make cities and human settlements inclusive, safe, resilient, and sustainable.',
             'why_matters_title': 'Why SDG 11 Matters',
             'targets_hero_title': 'SDG 11: Detailed Targets',
-            'targets_hero_subtitle': 'A closer look at the specific goals for sustainable urban development.'
+            'targets_hero_subtitle': 'A closer look at the specific goals for sustainable urban development.',
+            'stats_billion_people': 'Billion People in Cities',
+            'dyk_title': 'Did You Know?',
+            'dyk_fact1': "Cities consume over <strong>two-thirds</strong> of the world's energy and account for more than 70% of global CO2 emissions.",
+            'dyk_fact2': "By 2050, the world's urban population is expected to nearly <strong>double</strong>, making sustainable urbanization a critical global priority.",
+            'dyk_fact3': "Over <strong>1 billion</strong> people live in slums, and this number is projected to rise without significant intervention in housing policies.",
+            'co_title': 'Challenges vs. Opportunities',
+            'co_challenges_title': 'Challenges',
+            'co_opportunities_title': 'Opportunities',
+            'co_challenge1': 'Pollution & Emissions',
+            'co_challenge2': 'Housing Shortages',
+            'co_challenge3': 'Infrastructure Strain',
+            'co_challenge4': 'Social Inequality',
+            'co_opportunity1': 'Green Innovation',
+            'co_opportunity2': 'Economic Hubs',
+            'co_opportunity3': 'Cultural Diversity',
+            'co_opportunity4': 'Efficient Resource Use',
+            'action_title': 'SDG 11 in Action',
+            'action_case1_title': "Singapore's Green Plan 2030",
+            'action_case1_desc': "A nationwide movement to advance Singapore's national agenda on sustainable development. It charts ambitious and concrete targets, seeking to change the way people live, work, study and play, while creating new opportunities for growth.",
+            'action_case2_title': "Freiburg's Vauban District, Germany",
+            'action_case2_desc': 'A world-renowned example of sustainable urban living. The district is car-free, with extensive cycling networks, and buildings constructed to ultra-low energy consumption standards ("Passivhaus"), many with solar installations.',
+            'action_case3_title': "Curitiba's Bus Rapid Transit (BRT)",
+            'action_case3_desc': "Pioneered in Brazil, Curitiba's BRT system is a model for efficient, high-capacity public transport. Its dedicated bus lanes, pre-payment stations, and iconic tube-like stops have inspired similar systems worldwide, reducing congestion and pollution.",
+            'objectives_title': 'Core Objectives',
+            'objective1_title': 'Safe Housing',
+            'objective1_desc': 'Upgrade slums and ensure access to adequate and affordable housing for all.',
+            'objective2_title': 'Sustainable Transport',
+            'objective2_desc': 'Provide safe, affordable, and accessible transport systems, especially public transit.',
+            'objective3_title': 'Protect Heritage',
+            'objective3_desc': "Strengthen efforts to protect and safeguard the world's cultural and natural heritage.",
+            'objective4_title': 'Green Spaces',
+            'objective4_desc': 'Ensure universal access to safe, inclusive, and accessible green and public spaces.',
+            'help_title': 'How You Can Help',
+            'help_item1': '<strong>Champion Green Spaces.</strong> Support local parks, community gardens, and tree-planting initiatives. Green spaces are vital for air quality, biodiversity, and public health.',
+            'help_item2': '<strong>Use Sustainable Transport.</strong> Opt for public transportation, cycling, or walking whenever possible. Reducing car dependency lowers emissions and eases traffic congestion.',
+            'help_item3': "<strong>Advocate for Smart Policies.</strong> Voice your support for affordable housing, efficient waste management, and inclusive urban planning at local government meetings. Your voice matters in shaping your city's future."
         },
         'ES': {
             'nav_home': 'Inicio',
@@ -21,7 +57,43 @@ document.addEventListener("DOMContentLoaded", function() {
             'hero_subtitle': 'Lograr que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles.',
             'why_matters_title': 'Por Qué Importa el ODS 11',
             'targets_hero_title': 'ODS 11: Objetivos Detallados',
-            'targets_hero_subtitle': 'Una mirada más cercana a las metas específicas para el desarrollo urbano sostenible.'
+            'targets_hero_subtitle': 'Una mirada más cercana a las metas específicas para el desarrollo urbano sostenible.',
+            'stats_billion_people': 'Mil Millones de Personas en Ciudades',
+            'dyk_title': '¿Sabías Que?',
+            'dyk_fact1': 'Las ciudades consumen más de <strong>dos tercios</strong> de la energía mundial y representan más del 70% de las emisiones globales de CO2.',
+            'dyk_fact2': 'Para 2050, se espera que la población urbana mundial casi se <strong>duplique</strong>, convirtiendo la urbanización sostenible en una prioridad mundial crítica.',
+            'dyk_fact3': 'Más de <strong>mil millones</strong> de personas viven en barrios marginales, y se prevé que este número aumente sin una intervención significativa en las políticas de vivienda.',
+            'co_title': 'Desafíos vs. Oportunidades',
+            'co_challenges_title': 'Desafíos',
+            'co_opportunities_title': 'Oportunidades',
+            'co_challenge1': 'Contaminación y Emisiones',
+            'co_challenge2': 'Escasez de Vivienda',
+            'co_challenge3': 'Presión sobre la Infraestructura',
+            'co_challenge4': 'Desigualdad Social',
+            'co_opportunity1': 'Innovación Verde',
+            'co_opportunity2': 'Centros Económicos',
+            'co_opportunity3': 'Diversidad Cultural',
+            'co_opportunity4': 'Uso Eficiente de Recursos',
+            'action_title': 'ODS 11 en Acción',
+            'action_case1_title': 'Plan Verde de Singapur 2030',
+            'action_case1_desc': 'Un movimiento nacional para avanzar en la agenda de Singapur sobre desarrollo sostenible. Traza metas ambiciosas y concretas, buscando cambiar la forma en que la gente vive, trabaja, estudia y juega, mientras crea nuevas oportunidades de crecimiento.',
+            'action_case2_title': 'Distrito Vauban de Friburgo, Alemania',
+            'action_case2_desc': 'Un ejemplo de vida urbana sostenible de renombre mundial. El distrito es libre de automóviles, con extensas redes de ciclismo y edificios construidos con estándares de consumo de energía ultrabajo ("Passivhaus"), muchos con instalaciones solares.',
+            'action_case3_title': 'Sistema de Tránsito Rápido de Curitiba (BRT)',
+            'action_case3_desc': 'Pionero en Brasil, el sistema BRT de Curitiba es un modelo de transporte público eficiente y de alta capacidad. Sus carriles exclusivos para autobuses, estaciones de prepago y paradas icónicas en forma de tubo han inspirado sistemas similares en todo el mundo, reduciendo la congestión y la contaminación.',
+            'objectives_title': 'Objetivos Principales',
+            'objective1_title': 'Vivienda Segura',
+            'objective1_desc': 'Mejorar los barrios marginales y garantizar el acceso a viviendas adecuadas y asequibles para todos.',
+            'objective2_title': 'Transporte Sostenible',
+            'objective2_desc': 'Proporcionar sistemas de transporte seguros, asequibles y accesibles, especialmente el transporte público.',
+            'objective3_title': 'Proteger el Patrimonio',
+            'objective3_desc': 'Fortalecer los esfuerzos para proteger y salvaguardar el patrimonio cultural y natural del mundo.',
+            'objective4_title': 'Espacios Verdes',
+            'objective4_desc': 'Garantizar el acceso universal a espacios verdes y públicos seguros, inclusivos y accesibles.',
+            'help_title': 'Cómo Puedes Ayudar',
+            'help_item1': '<strong>Defiende los Espacios Verdes.</strong> Apoya los parques locales, jardines comunitarios e iniciativas de plantación de árboles. Los espacios verdes son vitales para la calidad del aire, la biodiversidad y la salud pública.',
+            'help_item2': '<strong>Usa Transporte Sostenible.</strong> Opta por el transporte público, la bicicleta o caminar siempre que sea posible. Reducir la dependencia del automóvil disminuye las emisiones y alivia la congestión del tráfico.',
+            'help_item3': '<strong>Aboga por Políticas Inteligentes.</strong> Expresa tu apoyo a la vivienda asequible, la gestión eficiente de residuos y la planificación urbana inclusiva en las reuniones del gobierno local. Tu voz importa en la configuración del futuro de tu ciudad.'
         }
     };
 
@@ -112,17 +184,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
         document.querySelectorAll('[data-i18n]').forEach((el) => {
             const key = el.dataset.i18n;
-            if (translations[lang][key]) {
-                // If the element is the animated hero text and it's already been animated,
-                // just update the text content without destroying the letter spans.
-                if (el.classList.contains('animated-hero-text') && el.dataset.isAnimated === 'true') {
-                    // This is a simple update. For a perfect 1-to-1 letter replacement,
-                    // a more complex function would be needed, but this is a robust fix.
-                    el.textContent = translations[lang][key];
-                } else {
-                    // Otherwise, just replace the content.
-                    el.innerHTML = translations[lang][key];
-                }
+            if (translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+        });
+
+        // Handle parent elements that contain multiple translatable children
+        // This is useful for lists or groups where you want to translate all children at once.
+        document.querySelectorAll('[data-i18n-parent]').forEach(parent => {
+            const childrenWithI18n = parent.querySelectorAll('[data-i18n]');
+            if (childrenWithI18n.length > 0) {
+                childrenWithI18n.forEach(child => {
+                    const key = child.dataset.i18n;
+                    if (translations[lang][key]) {
+                        child.innerHTML = translations[lang][key];
+                    }
+                });
             }
         });
 
@@ -168,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // === Hero Text Animation (Homepage only) ===
-    const heroText = document.querySelector('.animated-hero-text');
+    const heroText = document.querySelector('.hero__title.animated-hero-text');
     if (heroText) {
         // Check if it has already been animated by a previous script run
         if (heroText.dataset.isAnimated !== 'true') {
@@ -317,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // === Intersection Observer for Animations (Global) ===
-    const animatedElements = document.querySelectorAll('.illustration, .help-list li, .bar, .timeline__item, .stat-number, .icon-grid-item');
+    const animatedElements = document.querySelectorAll('.illustration, .help-list li, .bar, .timeline__item, .icon-grid-item, .stat-number');
     if (animatedElements.length > 0) {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -337,11 +412,12 @@ document.addEventListener("DOMContentLoaded", function() {
     if (mainContent) {
         // Active Nav Link on Scroll (Scrollspy)
         const sections = document.querySelectorAll(".content-section[id]");
-        const subNavLinks = document.querySelectorAll(".sub-nav a");
-        if (sections.length > 0 && subNavLinks.length > 0) {
+        const subNav = document.querySelector(".sub-nav");
+        if (sections.length > 0 && subNav) {
+            const subNavLinks = subNav.querySelectorAll("a");
             const scrollSpyObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
+                    if (entry.isIntersecting && subNavLinks.length > 0) {
                         const id = entry.target.getAttribute('id');
                         subNavLinks.forEach(link => {
                             link.classList.remove('active');
@@ -476,39 +552,95 @@ document.addEventListener("DOMContentLoaded", function() {
             window.addEventListener('scroll', () => window.requestAnimationFrame(updateParallax), { passive: true });
         }
 
-        // Animated Counters
-        const counterObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const el = entry.target;
-                    const goal = parseFloat(el.dataset.goal);
-                    const duration = 2000;
-                    let start = 0;
-                    const step = (timestamp) => {
-                        if (!start) start = timestamp;
-                        const progress = Math.min((timestamp - start) / duration, 1);
-                        el.textContent = (progress * goal).toFixed(el.dataset.goal.includes('.') ? 1 : 0);
-                        if (progress < 1) {
-                            window.requestAnimationFrame(step);
-                        }
-                    };
-                    window.requestAnimationFrame(step);
-                    observer.unobserve(el);
+        // Active animation for data card when in view
+        const dataCard = document.querySelector('.story-card--data');
+        if (dataCard) {
+            const dataCardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-active-anim');
+                    } else {
+                        entry.target.classList.remove('is-active-anim');
+                    }
+                });
+            }, { threshold: 0.5 });
+            dataCardObserver.observe(dataCard);
+        }
+
+        // Staggered Animation for Story Cards
+        const storyCards = document.querySelectorAll('.stories-grid .story-card');
+        if (storyCards.length > 0) {
+            const cardObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            storyCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 50}ms`;
+                cardObserver.observe(card);
+            });
+        }
+
+        // Story Grid Filtering
+        const storyFilterBar = document.querySelector('.story-filter-bar');
+        if (storyFilterBar) {
+            const storyCards = document.querySelectorAll('.stories-grid .story-card');
+
+            storyFilterBar.addEventListener('click', (e) => {
+                const filterBtn = e.target.closest('.story-filter-btn');
+                if (!filterBtn) return;
+
+                // Update active button state
+                storyFilterBar.querySelector('.active').classList.remove('active');
+                filterBtn.classList.add('active');
+
+                const filter = filterBtn.dataset.filter;
+
+                storyCards.forEach(card => {
+                    const category = card.dataset.category;
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        }
+
+        // Story Card Modal Trigger
+        const storiesGrid = document.querySelector('.stories-grid');
+        if (storiesGrid) {
+            storiesGrid.addEventListener('click', (e) => {
+                const modalTrigger = e.target.closest('[data-modal-target]');
+                if (modalTrigger) {
+                    openModal(modalTrigger.dataset.modalTarget);
                 }
             });
-        }, { threshold: 0.5 });
-        document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+        }
 
         // Case Studies Tabs
         const tabsContainer = document.querySelector('.case-study-tabs');
         if (tabsContainer) {
             tabsContainer.addEventListener('click', (e) => {
-                if (e.target.classList.contains('case-tab')) {
-                    tabsContainer.querySelector('.case-tab.active').classList.remove('active');
-                    document.querySelector('.case-content.active').classList.remove('active');
-                    e.target.classList.add('active');
-                    const tabNumber = e.target.dataset.tab;
-                    document.querySelector(`.case-content[data-tab="${tabNumber}"]`).classList.add('active');
+                const clickedTab = e.target.closest('.case-tab');
+                if (clickedTab) {
+                    const activeTab = tabsContainer.querySelector('.case-tab.active');
+                    const activeContent = document.querySelector('.case-content.active');
+
+                    activeTab.classList.remove('active');
+                    activeTab.setAttribute('aria-selected', 'false');
+                    activeContent.classList.remove('active');
+                    activeContent.hidden = true;
+
+                    clickedTab.classList.add('active');
+                    clickedTab.setAttribute('aria-selected', 'true');
+                    const contentToShow = document.querySelector(`.case-content[data-tab="${clickedTab.dataset.tab}"]`);
+                    contentToShow.classList.add('active');
+                    contentToShow.hidden = false;
                 }
             });
         }
@@ -517,6 +649,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const calculateBtn = document.getElementById('calculate-btn');
         if (calculateBtn) {
             calculateBtn.addEventListener('click', () => {
+                const form = calculateBtn.closest('form');
                 const commute = document.querySelector('input[name="commute"]:checked');
                 const recycle = document.querySelector('input[name="recycle"]:checked');
                 const resultDiv = document.querySelector('.calc-result');
@@ -533,11 +666,22 @@ document.addEventListener("DOMContentLoaded", function() {
         // Infinite Logo Carousel
         const logoCarousel = document.querySelector('.logo-carousel');
         if (logoCarousel) {
+            const partnersSection = logoCarousel.closest('.partners-section');
             const logos = logoCarousel.querySelectorAll('img');
             logos.forEach(logo => {
                 const clone = logo.cloneNode(true);
                 logoCarousel.appendChild(clone);
             });
+
+            // Pause animation on hover/focus for accessibility
+            const pauseAnimation = () => logoCarousel.style.animationPlayState = 'paused';
+            const playAnimation = () => logoCarousel.style.animationPlayState = 'running';
+
+            partnersSection.addEventListener('mouseenter', pauseAnimation);
+            partnersSection.addEventListener('mouseleave', playAnimation);
+            partnersSection.addEventListener('focusin', pauseAnimation);
+            partnersSection.addEventListener('focusout', playAnimation);
+
         }
     }
 
@@ -573,13 +717,14 @@ document.addEventListener("DOMContentLoaded", function() {
         let currentImageIndex;
 
         // 1. Gallery Filtering Logic
-        if (filterContainer) {
+        if (filterContainer && galleryItems.length > 0) {
             filterContainer.addEventListener('click', (e) => {
                 if (e.target.classList.contains('filter-btn')) {
                     filterContainer.querySelector('.active').classList.remove('active');
                     e.target.classList.add('active');
 
                     const filter = e.target.dataset.filter;
+                    const loadMoreBtn = document.querySelector('.load-more-btn');
 
                     galleryItems.forEach(item => {
                         if (filter === 'all' || item.dataset.category === filter) {
@@ -588,12 +733,21 @@ document.addEventListener("DOMContentLoaded", function() {
                             item.classList.add('hide');
                         }
                     });
+
+                    // When filtering, hide the "Load More" button as its logic is based on the initial full set.
+                    // A more advanced implementation could re-calculate, but this is a clean, simple approach.
+                    if (loadMoreBtn) {
+                        loadMoreBtn.style.display = filter === 'all' ? 'inline-block' : 'none';
+                        if (filter !== 'all') {
+                             galleryItems.forEach(item => item.classList.remove('hidden-by-load-more'));
+                        }
+                    }
                 }
             });
         }
 
         // 2. Lightbox Logic
-        const openLightbox = (index) => {
+        const openLightbox = (imgSrc) => {
             currentImageIndex = index;
             lightboxImg.src = allImages[currentImageIndex];
             lightbox.classList.add('active');
@@ -613,8 +767,14 @@ document.addEventListener("DOMContentLoaded", function() {
             lightboxImg.src = allImages[currentImageIndex];
         };
 
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => openLightbox(index));
+        galleryGrid.addEventListener('click', (e) => {
+            const galleryItem = e.target.closest('.gallery-item');
+            // Ensure the click is on a gallery item but not on the share button
+            if (galleryItem && !e.target.closest('.share-menu-btn')) {
+                const imgSrc = galleryItem.querySelector('img').src;
+                currentImageIndex = allImages.findIndex(src => src === imgSrc);
+                openLightbox(currentImageIndex);
+            }
         });
 
         lightboxClose.addEventListener('click', closeLightbox);
@@ -708,6 +868,14 @@ document.addEventListener("DOMContentLoaded", function() {
         // 5. Load More Button Logic
         const loadMoreBtn = document.querySelector('.load-more-btn');
         if (loadMoreBtn) {
+            const initialItems = 6;
+            // Initially hide items beyond the initial count
+            galleryItems.forEach((item, index) => {
+                if (index >= initialItems) {
+                    item.classList.add('hidden-by-load-more');
+                }
+            });
+
             loadMoreBtn.addEventListener('click', () => {
                 const hiddenItems = galleryGrid.querySelectorAll('.gallery-item.hidden-by-load-more');
                 const itemsToShow = 3;
@@ -723,6 +891,11 @@ document.addEventListener("DOMContentLoaded", function() {
                     loadMoreBtn.style.display = 'none';
                 }
             });
+
+            // Hide button initially if there are not enough items to hide
+            if (galleryItems.length <= initialItems) {
+                loadMoreBtn.style.display = 'none';
+            }
         }
     }
 
@@ -843,4 +1016,37 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // === MODAL LOGIC (Global) ===
+    const openModal = (modalId) => {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+    };
+
+    const closeModal = (modal) => {
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    };
+
+    // Close with button or overlay click
+    document.querySelectorAll('.modal-overlay, .modal-close').forEach(el => {
+        el.addEventListener('click', (e) => {
+            // Ensure we don't close when clicking on modal content itself
+            if (e.target === el) {
+                closeModal(el.closest('.modal-overlay'));
+            }
+        });
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const activeModal = document.querySelector('.modal-overlay.active');
+            closeModal(activeModal);
+        }
+    });
 });
